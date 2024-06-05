@@ -29,8 +29,11 @@ const CONTENT = {
   },
   autobio: {
     title: 'Autobio',
-    subtitle: 'Autbio subtitle here',
-    body: ['Autobio text here.', 'Autobio text here. (Line 2)', 'Autobio text here. (Line 3)'],
+    subtitle: 'Autobiographical comics',
+    body: [
+      'After several years of daily diary comics, I now make autobiographical comics whenever I want about whatever I want.',
+      'You can read them all here.',
+    ],
     buttonText: 'YOU SHOULD NEVER SEE ME!',
   },
   fantology: {
@@ -86,7 +89,6 @@ const ComicPageGrid = styled.div`
 const StyledContent = styled.div`
   grid-area: content;
 `;
-
 type ContentType = 'ego gala' | 'autobio' | 'fantology' | 'other works';
 
 const ComicPage = () => {
@@ -154,7 +156,6 @@ const ComicPage = () => {
             </Button>
           ) : null}
         </StyledContent>
-
         {activeCategoryTab === 'ego gala' ? <DiaryCalendar /> : null}
       </ComicPageGrid>
     </>
