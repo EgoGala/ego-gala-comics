@@ -71,6 +71,8 @@ const DiaryCalendar = () => {
   };
 
   const onDayClick = (value: Value) => {
+    // convert datestring from '2021-02-03T05:00:00.000Z' to '2020-02-03', which is what
+    // the dateToIds map uses for keys
     const dateClicked = value instanceof Date ? value.toISOString().split('T')[0] : null;
     if (dateClicked && datesToIds[dateClicked]) {
       router.push(`/comic/${datesToIds[dateClicked]}`);
@@ -89,18 +91,15 @@ const DiaryCalendar = () => {
     <OuterContainer>
       <InnerContainer>
         <StyledCalendar
-          activeStartDate={new Date(2019, 0, 1)}
+          defaultActiveStartDate={new Date(2019, 0, 1)}
           locale="en-US"
-          maxDate={new Date()}
+          maxDate={new Date(2021, 10, 27)}
           minDate={new Date(2019, 0, 1)}
-          // TODO: tileClassName={tileClassName}
-          // TODO: tileContent={tileContent}
           calendarType="gregory"
           onChange={onDateChange}
           onClickDay={onDayClick}
           tileDisabled={tileDisabled}
           value={selectedDate}
-          // showWeekNumbers
         />
       </InnerContainer>
     </OuterContainer>
