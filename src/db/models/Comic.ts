@@ -20,7 +20,7 @@ const ComicSchema: Schema = new Schema({
   title: { type: String, required: true },
   category: {
     type: String,
-    enum: ['diary', 'fantology', 'other works'],
+    enum: ['diary', 'autobio', 'fantology', 'other works'],
     required: true,
   },
   description: { type: String, required: false },

@@ -28,7 +28,7 @@ export const fetchComicsByCategory = async (
   try {
     const response = await axios.get(`/api/comics`, {
       params: {
-        category,
+        category: category === 'ego gala' ? 'diary' : category,
         page,
         limit,
       },

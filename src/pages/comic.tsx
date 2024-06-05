@@ -15,7 +15,7 @@ import { fetchEarliestDiaryComicId } from '../services/comics';
 import theme from '../styles/theme';
 
 const CONTENT = {
-  diary: {
+  'ego gala': {
     title: 'Ego Gala Archive',
     subtitle: 'Daily diary comics',
     body: [
@@ -26,6 +26,12 @@ const CONTENT = {
       'Eventually, I gave up the daily practice and moved to making autobiographical comics whenever I felt like it, this time with color.',
     ],
     buttonText: 'FIRST COMIC',
+  },
+  autobio: {
+    title: 'Autobio',
+    subtitle: 'Autbio subtitle here',
+    body: ['Autobio text here.', 'Autobio text here. (Line 2)', 'Autobio text here. (Line 3)'],
+    buttonText: 'YOU SHOULD NEVER SEE ME!',
   },
   fantology: {
     title: 'Fantology',
@@ -81,11 +87,11 @@ const StyledContent = styled.div`
   grid-area: content;
 `;
 
-type ContentType = 'diary' | 'fantology' | 'other works';
+type ContentType = 'ego gala' | 'autobio' | 'fantology' | 'other works';
 
 const ComicPage = () => {
   const router = useRouter();
-  const [activeCategoryTab, setActiveCategoryTab] = useState('diary');
+  const [activeCategoryTab, setActiveCategoryTab] = useState('ego gala');
   const [currentPage, setCurrentPage] = useState(1);
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
@@ -142,14 +148,14 @@ const ComicPage = () => {
             </Typography>
           ))}
 
-          {['diary', 'fantology'].includes(activeCategoryTab) ? (
+          {['ego gala', 'fantology'].includes(activeCategoryTab) ? (
             <Button fullWidth variant="contained" color="primary" onClick={goToEarliestDiaryComic}>
               {CONTENT[activeCategoryTab as ContentType].buttonText}
             </Button>
           ) : null}
         </StyledContent>
 
-        {activeCategoryTab === 'diary' ? <DiaryCalendar /> : null}
+        {activeCategoryTab === 'ego gala' ? <DiaryCalendar /> : null}
       </ComicPageGrid>
     </>
   );

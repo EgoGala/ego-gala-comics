@@ -93,19 +93,49 @@ const ComicViewer = ({ comic }: ComicViewerProps) => {
         >
           <Grid container px="10px">
             {/* First Row */}
-            <Grid item container pb="15px" justifyContent="space-between">
+            <Grid item container pb="15px" justifyContent="space-between" gap="1%">
               {comic.category === 'diary' ? (
                 <>
-                  <Grid item>
+                  <Grid item sx={{ width: '24%' }}>
                     {comic.title !== 'January 1, 2019' ? (
-                      <Button variant="contained" color="secondary" onClick={goToPrevComic}>
+                      <Button
+                        fullWidth
+                        color="secondary"
+                        variant="contained"
+                        onClick={goToPrevComic}
+                      >
                         Prev
                       </Button>
                     ) : null}
                   </Grid>
-                  <Grid item>
+                  <Grid item sx={{ width: '24%' }}>
+                    <Button
+                      fullWidth
+                      color="secondary"
+                      variant="contained"
+                      onClick={goToEarliestDiaryComic}
+                    >
+                      First Comic
+                    </Button>
+                  </Grid>
+                  <Grid item sx={{ width: '24%' }}>
+                    <Button
+                      fullWidth
+                      color="secondary"
+                      variant="contained"
+                      onClick={goToLatestDiaryComic}
+                    >
+                      Last Comic
+                    </Button>
+                  </Grid>
+                  <Grid item sx={{ width: '24%' }}>
                     {comic.title !== 'November 27, 2021' ? (
-                      <Button variant="contained" color="secondary" onClick={goToNextComic}>
+                      <Button
+                        fullWidth
+                        color="secondary"
+                        variant="contained"
+                        onClick={goToNextComic}
+                      >
                         Next
                       </Button>
                     ) : null}
@@ -137,7 +167,7 @@ const ComicViewer = ({ comic }: ComicViewerProps) => {
             </Grid>
 
             {/* Third Row */}
-            <Grid item container pt="15px" justifyContent="center" gap="2%">
+            {/* <Grid item container pt="15px" justifyContent="center" gap="2%">
               {comic.category === 'diary' ? (
                 <>
                   <Grid item sx={{ width: '49%' }}>
@@ -162,85 +192,6 @@ const ComicViewer = ({ comic }: ComicViewerProps) => {
                   </Grid>
                 </>
               ) : null}
-            </Grid>
-
-            {/* <Grid item container pt="15px" justifyContent="center" gap="1%">
-              {comic.category === 'diary' ? (
-                <>
-                  <Grid item sx={{ width: '24%' }}>
-                    <Button
-                      fullWidth
-                      color="secondary"
-                      variant="contained"
-                      onClick={goToEarliestDiaryComic}
-                    >
-                      First Comic
-                    </Button>
-                  </Grid>
-                  <Grid item sx={{ width: '24%' }}>
-                    {comic.title !== 'January 1, 2019' ? (
-                      <Button
-                        fullWidth
-                        color="secondary"
-                        variant="contained"
-                        onClick={goToPrevComic}
-                      >
-                        Prev Comic
-                      </Button>
-                    ) : null}
-                  </Grid>
-                  <Grid item sx={{ width: '24%' }}>
-                    {comic.title !== 'November 27, 2021' ? (
-                      <Button
-                        fullWidth
-                        color="secondary"
-                        variant="contained"
-                        onClick={goToNextComic}
-                      >
-                        Next Comic
-                      </Button>
-                    ) : null}
-                  </Grid>
-                  <Grid item sx={{ width: '24%' }}>
-                    <Button
-                      fullWidth
-                      color="secondary"
-                      variant="contained"
-                      onClick={goToLatestDiaryComic}
-                    >
-                      Last Comic
-                    </Button>
-                  </Grid>
-                </>
-              ) : null}
-            </Grid> */}
-
-            {/* <Grid item container justifyContent="space-between">
-              <Grid item> */}
-            {/* <Typography variant="h6" px="10px" color={theme.palette.secondary.light}>
-                    {new Intl.DateTimeFormat('en-US', {
-                      year: 'numeric',
-                      month: 'long',
-                      day: 'numeric',
-                    }).format(new Date(comic.publication_date))}
-                  </Typography> */}
-            {/* </Grid>
-              <Grid item>
-                <Box>
-                  <IconButton sx={iconButtonStyles} component="span">
-                    <Icon iconName="Twitter" />
-                  </IconButton>
-                  <IconButton sx={iconButtonStyles} component="span">
-                    <Icon iconName="Facebook" />
-                  </IconButton>
-                  <IconButton sx={iconButtonStyles} component="span">
-                    <Icon iconName="Mail" />
-                  </IconButton>
-                  <IconButton sx={iconButtonStyles} component="span">
-                    <Icon iconName="Copy" />
-                  </IconButton>
-                </Box>
-              </Grid>
             </Grid> */}
           </Grid>
         </Container>

@@ -71,7 +71,7 @@ const ComicList = ({
         const response = await fetchComicsByCategory(category, currentPage);
         setComics(response.comics);
         setTotalPages(response.totalPages);
-        if (category === 'diary') {
+        if (category === 'ego gala') {
           setTotalComics(response.totalComics);
         }
       } catch (error) {
@@ -115,7 +115,7 @@ const ComicList = ({
               }}
             >
               <ListItemAvatar>
-                {category === 'diary' ? (
+                {category === 'ego gala' ? (
                   <Box
                     sx={{
                       width: '80px',
@@ -144,19 +144,19 @@ const ComicList = ({
               <Box display="flex" alignItems="center" width="100%">
                 {/* <ListItemText
                   primary={
-                    category === 'diary'
+                    category === 'ego gala'
                       ? `Diary Comic #${(currentPage - 1) * COMICS_PER_PAGE + index + 1}`
                       : comic.title
                   }
                   sx={{ textAlign: 'left' }}
                 /> */}
                 <ListItemText
-                  // primary={category !== 'diary' ? comic.title : null}
+                  // primary={category !== 'ego gala' ? comic.title : null}
                   primary={comic.title}
                   sx={{ textAlign: 'left' }}
                 />
 
-                {/* {category !== 'diary' && (
+                {/* {category !== 'ego gala' && (
                   <center>
                     <ListItemText primary={comic.description} />
                   </center>
@@ -164,7 +164,7 @@ const ComicList = ({
 
                 <ListItemText
                   secondary={
-                    category !== 'diary'
+                    category !== 'ego gala'
                       ? new Intl.DateTimeFormat('en-US', {
                           year: 'numeric',
                           month: 'long',
