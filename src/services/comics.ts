@@ -28,6 +28,11 @@ export const fetchComicsByCategory = async (
   try {
     const response = await axios.get(`/api/comics`, {
       params: {
+        // TODO: Fix this hacky way of displaying the ego gala text.
+        // Right now all of the 'categories' in mongo use the category name 'diary'
+        // but we want to display 'ego gala' on the navbar. So instead of doing the
+        // hard work of converting all the mongodb items to say 'diary', we're just going
+        // to convert here and in other places that require it
         category: category === 'ego gala' ? 'diary' : category,
         page,
         limit,
