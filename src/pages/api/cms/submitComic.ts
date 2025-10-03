@@ -20,6 +20,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       category,
       description,
       publication_date,
+      thumbnail_url: panels[0].image_url, // default to using the comic's first panel image URL as the thumbnail
     });
     await comic.save();
 
